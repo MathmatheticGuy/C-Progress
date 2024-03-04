@@ -77,8 +77,10 @@ void deleteNode(int v){
 
 void freeLinkedList(){
     printf("Clean Linked List\n");
+    // declare current Node + nextNode
     Node *current = head;
     Node *nextNode;
+
     // if the next Node isn't NULL. Delete the current node then move on to the next Node & repeat.
     while (current != NULL){
         nextNode = current->next;

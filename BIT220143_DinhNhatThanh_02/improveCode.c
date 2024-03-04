@@ -108,9 +108,9 @@ int main() {
     printf("You entered: %d\n", n);
     int inNum = n + 200;
     itoa(inNum, binaryNum, 2);
-    printf("%d+200 in Binary: %s\n", n, binaryNum);
+    printf("%d+200 in Binary: %s\n", n, binaryNum); // 8 bits numbers
 
-    int highest3bits = (inNum >> 5) & 0xF;
+    int highest3bits = (inNum >> 5) & 0xF; // bit shift 5 bit to get the last 3 bytes 
     printf("Highest 3 bits: %d\n", highest3bits);
 
     staff *head;
@@ -120,11 +120,12 @@ int main() {
 
     writeToFile(head, n, "danhsach_cautruc.csv");
 
-    for (int i = 0; i < n; i++) {
-        // No need to free individual fields, as they are not dynamically allocated
+    for (int i= 0; i < n; i++){
+        free(head[i].staffID);
+        free(head[i].staffName);
     }
     free(head);
-    head = NULL;
+    
 
     hienthi_ds(head, n);
 }
